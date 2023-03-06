@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .box {
+            width: 350px;
+            height: 500px;
+            background-color: gray;
+            padding: 7px;
+        }
+
+        .buttons {
+            display: grid;
+            padding: 5px;
+            grid-template-columns: 85px 85px 85px 85px;
+        }
+
+        button {
+            width: 80px;
+            height: 70px;
+            margin-bottom: 5px;
+            font-size: x-large;
+
+        }
+
+        button:hover {
+            background-color: darkgrey;
+        }
+    </style>
+    <script>
+        function clearscreen() {
+            document.getElementById("result").value = '';
+        }
+        function display(val) {
+            if (val != 'x')
+                document.getElementById('result').value += val;
+            else
+                document.getElementById('result').value=document.getElementById('result').value.slice(0,-1);
+        }
+        function exit() {
+            window.close();
+        }
+        function cal() {
+            var p = document.getElementById("result").value;
+            var q = eval(p);
+            document.getElementById("result").value = q;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <input class="display-box" type="text" id="result" disabled
+            style="width: 330px; height: 115px; padding: 5px;margin: auto; background-color:white; font-size: x-large;" />
+        <div class="buttons">
+            <button id="C" onclick="clearscreen()">C</button>
+            <button id="off" onclick="exit()">OFF</button>
+            <button id="**" onclick="display('^')">^</button>
+            <button id="x" onclick="display('x')">del</button>
+            <button id="7" onclick="display('7')">7</button>
+            <button id="8" onclick="display('8')">8</button>
+            <button id="9" onclick="display('9')">9</button>
+            <button id="/" onclick="display('/')">/</button>
+            <button id="4" onclick="display('4')">4</button>
+            <button id="5" onclick="display('5')">5</button>
+            <button id="6" onclick="display('6')">6</button>
+            <button id="*" onclick="display('*')">x</button>
+            <button id="1" onclick="display('1')">1</button>
+            <button id="2" onclick="display('2')">2</button>
+            <button id="3" onclick="display('3')">3</button>
+            <button id="-" onclick="display('-')">-</button>
+            <button id="0" onclick="display('0')">0</button>
+            <button id="." onclick="display('.')">.</button>
+            <button id="=" onclick="cal()">=</button>
+            <button id="+" onclick="display('+')">+</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
